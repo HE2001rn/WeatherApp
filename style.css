@@ -1,0 +1,337 @@
+
+.logo{
+    width:5%;
+    height:5%;
+    float:left;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+.d-flex{
+    width: 60%;
+    float: right;
+    margin-top: -50px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+.search{
+     width: 30%;
+     height:32px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     background-color: rgb(249, 249, 249);
+     padding: 10px;
+     margin-right: 552px;
+     margin-top: -50px;
+     float: right;
+}
+.Searchicon{
+     width: 1.5%;
+     height: 1.5%;
+     float: right;
+     margin-right: 555px;
+     margin-top: -45px;
+
+}
+.Searchbtn{
+     width: 5%;
+     height:32px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     margin-right: 470px;
+     margin-top: -50px;
+     float: right;
+}
+.photo1{
+    background-size:cover;
+    background-repeat:no-repeat;
+    width:100%;
+    height:700px;;
+    margin-top:-1px;
+    margin-left:-1px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float: left;
+    margin-top: -580px;
+    margin-left: 100px;
+  }
+
+  .Mode{
+    margin-left: -90px;
+    margin-top: -7px;
+    color: white;
+  }
+
+  .onOff{
+    margin-left: -80px;
+    margin-top: -4px;
+    color: white;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+.Location{
+    margin-top: -500px;
+    margin-left: 200px;
+    color: white;
+}
+.rectangle{
+    width: 350px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    border-radius: 20px;
+    top: 230px;
+    left: 200px;
+}
+.now{
+    font-family:monospace;
+    font-weight: 900;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-left: 20px;
+    color: hsla(57, 95%, 50%, 0.679);
+}
+.currenttemp{
+    font-family:monospace;
+    font-size: 45px;
+    font-weight:lighter;
+    margin-top: -15px;
+    margin-left: 20px;
+    color: hsla(57, 95%, 50%, 0.679);
+}
+.feellike{
+    font-family:monospace;
+    font-weight:lighter;
+    margin-top: -25px;
+    margin-left: 20px;
+    color: hsla(57, 95%, 50%, 0.679);
+}
+.forecast{
+    font-family:monospace;
+    font-weight:lighter;
+    margin-top: -5px;
+    margin-left: 20px;
+    color: hsla(57, 95%, 50%, 0.679);
+}
+.wind{
+    font-family:monospace;
+    font-weight:lighter;
+    margin-top: 35px;
+    margin-left: 20px;
+    color: hsla(57, 95%, 50%, 0.679);
+}
+.tempicon{
+    width: 30.5%;
+    height: 30.5%;
+    margin-left: 218px;
+    margin-top: -415px;
+    border-radius: 10px;
+}
+.rectangle1{
+    width: 1400px;
+    height: 300px;
+    background-color: hsl(57, 100%, 38%);
+    position: absolute;
+    border-radius: 20px;
+    top: 750px;
+    left: 60px;
+}
+.Upcoming{
+    font-weight:700;
+    margin-top: 30px;
+    margin-left: 60px;
+    color: white;
+}
+.table1{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tbhead1{
+    float: center;
+    padding-right: 80px;
+    padding-left: 80px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-color: black;
+    font-size: 20px;
+    color: white;
+}
+.tbhead2{
+    float: center;
+    padding-top: 1px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-color: black;
+}
+.weatherIcon{
+    margin-left: 55px;
+    height: 90px;
+    width: 90px;
+}
+.tbhead{
+    float: center;
+    padding-right: 80px;
+    padding-left: 80px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-color: black;
+    font-size: 20px;
+    color: white;
+}
+.rectangle2{
+    width: 1400px;
+    height: 350px;
+    background-color:  hsl(57, 100%, 38%);
+    position: absolute;
+    border-radius: 20px;
+    top: 1150px;
+    left: 60px;
+}
+.Forecast{
+    font-weight:700;
+    margin-top: 30px;
+    margin-left: 60px;
+    color: white;
+}
+.foreCast1{
+    margin-top: 110px;
+    margin-left: 20px;
+}
+.wc{
+    margin-top: 53px;
+    margin-left: 20px;
+}
+.T{
+    margin-left: 20px;
+}
+.Cop{
+    margin-left: 20px;
+}
+.table2{
+    margin-top: -212px;
+    margin-left: 200px;
+    margin-right: auto;
+}
+.tbhead10{
+    float: center;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-color: black;
+    font-size: 20px;
+    color: white;
+}
+.date-pic{
+    float: center;
+    padding-left: 10px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-color: black;
+    font-size: 25px;
+}
+.weatherIcon2{
+    height: 60px;
+    width: 80px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.tbhead12{
+    float: center;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 40px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-color: black;
+    font-size: 15px;
+    color: white;
+}
+.tbhead13{
+    float: center;
+    padding-right: 60px;
+    padding-left: 40px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-color: black;
+    font-size: 15px;
+    font-weight:bolder;
+    color: rgb(25, 0, 255);
+}
+.tbhead14{
+    float: center;
+    padding-right: 60px;
+    padding-left: 40px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-bottom-width: 3px;
+    border-color: black;
+    font-size: 15px;
+    color: white;
+}
+
