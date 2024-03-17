@@ -1,150 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NN | Weather </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NN | Weather</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="test.css">
 
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <style>
-        body{
-            background-color: #017577;
-        }
-        h3{
-            text-align: left;
-            font-weight: bold;
-            color:  hsl(57, 100%, 38%);
-            padding-left: 20px;
-            padding-top: 10px;
-            margin-left: 80px;
-            margin-top: 10px;
-        }
-        
-    </style>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
 
 </head>
 
-
-<body>
-
-    <div class="header">
-        <img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-day-icon-vector-illustration-260nw-1410172892.jpg" class="logo">
-        <h3 class="head">NN | Weather</h3>
-    </div>
-    <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search Your location" id="search">
-        <button id="btn" class="btn btn-primary" type="button">Search</button>
-    </form>
-    <div>
-        <img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\edit_20210927181905_942.jpg" width="1535px" height="600px" class="Photo1">
-        <label class="switch">
-            <h6 class="Mode">Dark Mode</h6>
-            <h6 class="onOff">On/Off</h6>
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <h2 class="Location">Weather in Colombo, Sri Lanka</h2>
-        <div class="rectangle">
-            <h2 class="now">Now</h2>
-            <h2 class="currenttemp" id="nowWeather">24 C</h2><br><br>
-            <h6 class="feellike"> Feels Like: 23 C</h6>
-            <h6 class="forecast"> Forecast: 31/25 C</h6>
-            <h6 class="wind"> Wind: 4km/h From Northeast </h6>
-            <img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\sun-cloud-icon-line-weather-symbol-vector-21085502.jpg" class="tempicon">
+<body data-bs-theme="light">
+  <nav class="navbar" id="nav">
+    <div class="container-fluid">
+      <div>
+        <div class="d-flex flex-row justify-content-around ">
+          <div class=""> <img src="./assets/cloudy-day-icon-vector-illustration-260nw-1410172892.jpg" alt="Logo"
+              width="55" height="37" class="rounded-3  d-inline-block align-text-center"></div>
+          <div>
+            <h3 class="align-text-center mx-4">NN | Weather</h3>
+          </div>
         </div>
+      </div>
+      <div>
+        <div class="d-flex" role="search">
+          <input class="form-control me-2 " placeholder="Search Your Location" id="search">
+          <button class="btn btn-primary me-2 " id="btn">Search</button>
+        </div>
+      </div>
     </div>
-    <div class="rectangle1">
-        <h4 class="Upcoming">Upcoming 5 Hours</h4>
-        <table  class="table1">
-            <tr class="trline">
-                <th class="tbhead1">Now</th>
-                <th class="tbhead1">11:00</th>
-                <th class="tbhead1">12:00</th>
-                <th class="tbhead1">13:00</th>
-                <th class="tbhead1">14:00</th>
-                <th class="tbhead1">15:00</th>
-            </tr>
-            <tr class="trline">
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-                <td class="tbhead2"><img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\290918-200.png" class="weatherIcon"></td>
-            </tr>
-            <tr class="trline">
-                <td class="tbhead">26 C</td>
-                <td class="tbhead">26 C</td>
-                <td class="tbhead">26 C</td>
-                <td class="tbhead">26 C</td>
-                <td class="tbhead">26 C</td>
-                <td class="tbhead">26 C</td>
-            </tr>
-        </table>
-    </div>
-    <div class="rectangle2">
-        <h4 class="Forecast">Forecast for the this week</h4>
-        <h6 class="foreCast1">Forecast       :</h6>
-        <h6 class="wc">Weather Condition     :</h6>
-        <h6 class="T">Temperature            :</h6>
-        <h6 class="Cop">Chance of Preciption :</h6>
-        <table  class="table2">
-            <tr class="trline">
-                <th class="tbhead10">Sun</th>
-                <th class="tbhead10">Mon</th>
-                <th class="tbhead10">Tue</th>
-                <th class="tbhead10">Wed</th>
-                <th class="tbhead10">Thu</th>
-                <th class="tbhead10">Sat</th>
-                <th class="tbhead10">Sun</th>
-            </tr>
-            <tr class="trline">
-                <td class="date-pic">3<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">4<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">5<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">6<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">7<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">8<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-                <td class="date-pic">9<img src="C:\Users\HESHAN\Desktop\Course Work 4 sem\Figma Photos\cloudy-weather-glyph-icon-clouds-heavy-clouds-overcast-weather-forecast-silhouette-symbol-negative-space-isolated-illustration-vector.jpg" class="weatherIcon2"></td>
-            </tr>
-            <tr class="trline">
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-                <td class="tbhead12">Overcast</td>
-            </tr>
-            <tr class="trline">
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-                <td class="tbhead13">31/24 C</td>
-            </tr>
-            <tr class="trline">
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-                <td class="tbhead14">5%</td>
-            </tr>
-        </table>
-    </div>
-    <script src="script.js"></script>
+  </nav>
 
-      
+  <div class="container-fluid  col-lg-12" id="current-weather">
+    <div class="d-flex flex-row ">
+      <div class="text-center mt-2 text-light">
+        <b>Dark Mode <br>
+          On/Off</b>
+      </div>
 
+      <div class=" mx-3  mt-3">
+        <label class="switch">
+          <input type="checkbox" id="darkmode-toggle">
+          <span class="slider round" id="theme"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-4 " id="current-details">
+      <h2 class="Location text-light ">Weather in Colombo, Sri Lanka</h2>
+      <div class="card  col-lg-3 col-md-6 col-sm-7 col-8 bg-info-subtle opacity-75      rounded-5 mt-4 "
+        id="current-temp-text">
+        <div id="weatherInfo" class="card-body pb-0 ">
+          <div class="rectangle">
+            <div class="d-flex flex-row justify-content-between  ">
+              <div class="mt-2">
+                <h1 class="now fs-1  ">Now</h1>
+                <h2 class="currenttemp text-warning " id="nowWeather">24 °C</h2><br><br>
+              </div>
+              <div class=" mb-1"><img src="" id="tempIcon" alt="" class="tempicon" width="130px"></div>
+            </div>
+
+
+
+            <h2 class="currentDate fs-3 "> 15th of March 2024</h2>
+            <h6 class="feellike text-warning"> Feels Like: 23 °C</h6>
+            <h6 class="forecast text-warning" id="forcastS"> Forecast: 31/25 °C</h6><br>
+            <h6 class="wind mb-3 text-info "> Wind: 4km/h From Northeast </h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid ">
+    <div class="clock align-items-end text-end fs-1 me-2 " id="clock">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="ampm">AM</span>
+    </div>
+  </div>
+  <div>
+    <div class="card mt-3 m-5 bg-dark-subtle ">
+      <div class="card-body ">
+        <h3>Upcoming 5 Hours</h3>
+        <div class=" mt-4  ">
+
+          <table class="table table-bordered border-black text-center ">
+            <tr class="trline  ">
+              <th class="tbhead1 bg-warning" id="d1">Now</th>
+              <th class="tbhead1 bg-warning" id="d2">11:00</th>
+              <th class="tbhead1 bg-warning" id="d3">12:00</th>
+              <th class="tbhead1 bg-warning" id="d4">13:00</th>
+              <th class="tbhead1 bg-warning" id="d5">14:00</th>
+              <th class="tbhead1 bg-warning" id="d6">15:00</th>
+            </tr>
+            <tr class="trline">
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img1"></td>
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img2"></td>
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img3"></td>
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img4"></td>
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img5"></td>
+              <td class="tbhead2"><img src="" class="weatherIcon" id="img6"></td>
+            </tr>
+            <tr class="trline">
+              <td class="tbhead" id="tem1">26 °C</td>
+              <td class="tbhead" id="tem2">26 °C</td>
+              <td class="tbhead" id="tem3">26 °C</td>
+              <td class="tbhead" id="tem4">26 °C</td>
+              <td class="tbhead" id="tem5">26 °C</td>
+              <td class="tbhead" id="tem6">26 °C</td>
+            </tr>
+          </table>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card mt-5 m-5 bg-dark-subtle ">
+    <div class="card-body ">
+      <h3 class="Forecast">Forecast for future 7 days</h3>
+      <table class="table border-1 mt-5">
+        <tr>
+
+        </tr>
+        <tr class="trline">
+          <th></th>
+          <th class="tbhead10" id="d11">Sun</th>
+          <th class="tbhead10" id="d12">Mon</th>
+          <th class="tbhead10" id="d13">Tue</th>
+          <th class="tbhead10" id="d14">Wed</th>
+          <th class="tbhead10" id="d15">Thu</th>
+          <th class="tbhead10" id="d16">Fri</th>
+          <th class="tbhead10" id="d17">Sat</th>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="foreCast1">Forecast :</h6>
+          </td>
+          <td class="date-pic"><img src="" id="img11" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img12" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img13" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img14" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img15" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img16" class="weatherIcon2" alt=""></td>
+          <td class="date-pic"><img src="" id="img17" class="weatherIcon2" alt=""></td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="wc">Weather Condition :</h6>
+          </td>
+          <td class="tbhead12" id="con11">Overcast</td>
+          <td class="tbhead12" id="con12">Overcast</td>
+          <td class="tbhead12" id="con13">Overcast</td>
+          <td class="tbhead12" id="con14">Overcast</td>
+          <td class="tbhead12" id="con15">Overcast</td>
+          <td class="tbhead12" id="con16">Overcast</td>
+          <td class="tbhead12" id="con17">Overcast</td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="T">Temperature :</h6>
+          </td>
+          <td class="tbhead13" id="tem11">31/24 °C</td>
+          <td class="tbhead13" id="tem12">31/24 °C</td>
+          <td class="tbhead13" id="tem13">31/24 °C</td>
+          <td class="tbhead13" id="tem14">31/24 °C</td>
+          <td class="tbhead13" id="tem15">31/24 °C</td>
+          <td class="tbhead13" id="tem16">31/24 °C</td>
+          <td class="tbhead13" id="tem17">31/24 °C</td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="Cop">Chance of Preciption :</h6>
+          </td>
+          <td class="tbhead14" id="hum11">5%</td>
+          <td class="tbhead14" id="hum12">5%</td>
+          <td class="tbhead14" id="hum13">5%</td>
+          <td class="tbhead14" id="hum14">5%</td>
+          <td class="tbhead14" id="hum15">5%</td>
+          <td class="tbhead14" id="hum16">5%</td>
+          <td class="tbhead14" id="hum17">5%</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="card mt-5 m-5 bg-dark-subtle       ">
+    <div class="card-body ">
+      <h3 class="Forecast">Forecast for Past 3 days</h3>
+      <table class="table border-1 mt-5  ">
+        <tr>
+
+        </tr>
+        <tr class="trline">
+          <th></th>
+          <th class="tbhead30" id="d21">Sun</th>
+          <th class="tbhead30" id="d22">Mon</th>
+          <th class="tbhead30" id="d23">Tue</th>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="foreCast1">Forecast :</h6>
+          </td>
+          <td class="date-pic3"><img src="" id="img21" class="weatherIcon2" alt=""></td>
+          <td class="date-pic3"><img src="" id="img22" class="weatherIcon2" alt=""></td>
+          <td class="date-pic3"><img src="" id="img23" class="weatherIcon2" alt=""></td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="wc">Weather Condition :</h6>
+          </td>
+          <td class="tbhead32" id="con21">Overcast</td>
+          <td class="tbhead32" id="con22">Overcast</td>
+          <td class="tbhead32" id="con23">Overcast</td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="T">Temperature :</h6>
+          </td>
+          <td class="tbhead33" id="tem21">31/24 °C</td>
+          <td class="tbhead33" id="tem22">31/24 °C</td>
+          <td class="tbhead33" id="tem23">31/24 °C</td>
+        </tr>
+        <tr class="trline">
+          <td>
+            <h6 class="Cop">Chance of Preciption :</h6>
+          </td>
+          <td class="tbhead34" id="hum21">5%</td>
+          <td class="tbhead34" id="hum22">5%</td>
+          <td class="tbhead34" id="hum23">5%</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class=" bg-info-subtle mt-0">
+    <div class=" bg-info-subtle card m-5">
+      <div id="map" class="container-fluid card-body " style="width: 100%; height: 550px;"></div>
+    </div>
+  </div>
+
+  <footer class="bg-body-tertiary text-center " >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!"
+          role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!"
+          role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!"
+          role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+          role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!"
+          role="button"><i class="fab fa-linkedin-in"></i></a>
+        <!-- Github -->
+        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!"
+          role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2020 Copyright:
+      <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="./script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
