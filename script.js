@@ -44,7 +44,7 @@ const handleSearch = () => {
     
     let apiUrl;
     if (searchQuery) {
-        apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchQuery}&days=1&aqi=no&alerts=no`, reop;
+        apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchQuery}&days=1&aqi=no&alerts=no`, reop;
     } else {
         
         apiUrl = null; 
@@ -99,7 +99,7 @@ const handleSearch = () => {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
 
-                apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=1&aqi=no&alerts=no`, reop;
+                apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=1&aqi=no&alerts=no`, reop;
 
                 fetch(apiUrl)
                     .then(response => response.json())
